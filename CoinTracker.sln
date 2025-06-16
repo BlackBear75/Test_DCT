@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_DCT", "Test_DCT\Test_DCT.csproj", "{A16A4BF0-6CEB-41A1-960E-6725595A3DF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinTracker", "Test_DCT\CoinTracker.csproj", "{A16A4BF0-6CEB-41A1-960E-6725595A3DF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

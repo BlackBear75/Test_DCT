@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows.Data;
 
-namespace Test_DCT.Helpers;
+namespace CoinTracker.Helpers;
 
     public class IntToBoolConverter : IValueConverter
     {

@@ -1,8 +1,8 @@
 ﻿using System.Windows.Controls;
-using Test_DCT.ViewModel;
-using Test_DCT.Model;
+using CoinTracker.ViewModel;
+using CoinTracker.Model;
 
-namespace Test_DCT.View
+namespace CoinTracker.View
 {
     /// <summary>
     /// Interaction logic for CoinDetailPage.xaml

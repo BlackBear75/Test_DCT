@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace Test_DCT
+namespace CoinTracker
 {
     /// <summary>
     /// Interaction logic for App.xaml

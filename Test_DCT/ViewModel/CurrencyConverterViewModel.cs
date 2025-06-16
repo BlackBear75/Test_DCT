@@ -1,10 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using Test_DCT.Model;
-using Test_DCT.Service;
+using CoinTracker.Model;
+using CoinTracker.Service;
 
-namespace Test_DCT.ViewModel;
+namespace CoinTracker.ViewModel;
 
 
 public partial class CurrencyConverterViewModel : ObservableObject

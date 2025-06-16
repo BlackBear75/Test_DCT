@@ -1,8 +1,8 @@
 ﻿
 using System.Windows;
-using Test_DCT.Service;
+using CoinTracker.Service;
 
-namespace Test_DCT.View
+namespace CoinTracker.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

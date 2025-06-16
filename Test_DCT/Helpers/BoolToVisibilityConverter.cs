@@ -2,7 +2,7 @@
 using System.Windows.Data;
 using System.Windows;
 
-namespace Test_DCT.Helpers;
+namespace CoinTracker.Helpers;
 
     public class BoolToVisibilityConverter : IValueConverter
     {

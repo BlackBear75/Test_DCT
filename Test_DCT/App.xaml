@@ -1,8 +1,8 @@
-﻿<Application x:Class="Test_DCT.App"
+﻿<Application x:Class="CoinTracker.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Test_DCT.View"
-             xmlns:helpers="clr-namespace:Test_DCT.Helpers"
+             xmlns:local="clr-namespace:CoinTracker.View"
+             xmlns:helpers="clr-namespace:CoinTracker.Helpers"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>

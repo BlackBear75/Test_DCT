@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows;
 
-namespace Test_DCT.Service
+namespace CoinTracker.Service
 {
     public static class SettingsService
     {

@@ -13,7 +13,7 @@
 
     <system:String x:Key="LoadButtonText">Load</system:String>
     <system:String x:Key="LoadingText">Loading...</system:String>
-    <system:String x:Key="TitleText">Crypto Tracker</system:String>
+    <system:String x:Key="TitleText">CoinTracker</system:String>
     <system:String x:Key="Column_Name">Name</system:String>
     <system:String x:Key="Column_Symbol">Symbol</system:String>
     <system:String x:Key="Column_Price">Price (USD)</system:String>

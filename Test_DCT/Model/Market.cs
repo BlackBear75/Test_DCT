@@ -1,5 +1,5 @@
 ﻿
-namespace Test_DCT.Model;
+namespace CoinTracker.Model;
 
     public class Market
     {

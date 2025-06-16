@@ -1,7 +1,7 @@
 ﻿
 using System.Windows.Controls;
 
-namespace Test_DCT.Service;
+namespace CoinTracker.Service;
 
     public interface INavigationService
     {

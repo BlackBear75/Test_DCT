@@ -1,4 +1,4 @@
-﻿<Window x:Class="Test_DCT.View.MainWindow"
+﻿<Window x:Class="CoinTracker.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="{DynamicResource TitleText}" 

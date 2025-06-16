@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
-using Test_DCT.Service;
-using Test_DCT.ViewModel;
+using CoinTracker.Service;
+using CoinTracker.ViewModel;
 
-namespace Test_DCT.View
+namespace CoinTracker.View
 {
     /// <summary>
     /// Interaction logic for CurrencyConverterPage.xaml

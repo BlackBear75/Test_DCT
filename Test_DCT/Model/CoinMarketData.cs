@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-namespace Test_DCT.Model;
+namespace CoinTracker.Model;
 public class CoinMarketData
 {
     [JsonPropertyName("id")]

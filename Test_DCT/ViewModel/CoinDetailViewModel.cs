@@ -7,10 +7,10 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
-using Test_DCT.Model;
-using Test_DCT.Service;
+using CoinTracker.Model;
+using CoinTracker.Service;
 
-namespace Test_DCT.ViewModel;
+namespace CoinTracker.ViewModel;
 
 public partial class CoinDetailViewModel : ObservableObject
 {
