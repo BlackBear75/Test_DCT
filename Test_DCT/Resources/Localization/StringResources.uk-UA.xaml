@@ -21,6 +21,23 @@
     <system:String x:Key="LightThemeButton">☀️ Світла</system:String>
     <system:String x:Key="DarkThemeButton">🌙 Темна</system:String>
 
+    <system:String x:Key="PriceLabel">Ціна:</system:String>
+    <system:String x:Key="VolumeLabel">| Обсяг (24ч):</system:String>
+    <system:String x:Key="ChangeLabel">| Зміна (24ч):</system:String>
 
+    <system:String x:Key="ChartTitleFormat">Свічковий графік за останні {0} днів</system:String>
+    <system:String x:Key="DateAxisTitle">Дата</system:String>
+    <system:String x:Key="PriceAxisTitle">Ціна (USD)</system:String>
+
+    <system:String x:Key="Period1d">1 день</system:String>
+    <system:String x:Key="Period7d">7 днів</system:String>
+    <system:String x:Key="Period30d">30 днів</system:String>
+    <system:String x:Key="Period1y">Рік</system:String>
+
+    <system:String x:Key="ExchangeColumn">Біржа</system:String>
+    <system:String x:Key="PairColumn">Пара</system:String>
+    <system:String x:Key="PriceColumn">Ціна</system:String>
+    <system:String x:Key="LinkColumn">Посилання</system:String>
+    <system:String x:Key="GoToButton">Перейти</system:String>
 
 </ResourceDictionary>

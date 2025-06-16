@@ -22,6 +22,25 @@
     <system:String x:Key="Column_Change24h">% Change 24h</system:String>
 
 
+    <system:String x:Key="PriceLabel">Price:</system:String>
+    <system:String x:Key="VolumeLabel">| Volume (24h):</system:String>
+    <system:String x:Key="ChangeLabel">| Change (24h):</system:String>
+
+
+    <system:String x:Key="ChartTitleFormat">Candlestick chart for the last {0} days</system:String>
+    <system:String x:Key="DateAxisTitle">Date</system:String>
+    <system:String x:Key="PriceAxisTitle">Price (USD)</system:String>
+    
+    <system:String x:Key="Period1d">1 day</system:String>
+    <system:String x:Key="Period7d">7 days</system:String>
+    <system:String x:Key="Period30d">30 days</system:String>
+    <system:String x:Key="Period1y">1 year</system:String>
+
+    <system:String x:Key="ExchangeColumn">Exchange</system:String>
+    <system:String x:Key="PairColumn">Pair</system:String>
+    <system:String x:Key="PriceColumn">Price</system:String>
+    <system:String x:Key="LinkColumn">Link</system:String>
+    <system:String x:Key="GoToButton">Go to</system:String>
 
 
 </ResourceDictionary>

@@ -11,7 +11,8 @@
                 <ResourceDictionary Source="Resources/Themes/LightTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <helpers:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
-
+            <helpers:IntToBoolConverter x:Key="IntToBoolConverter" />
+            <helpers:PriceFormatConverter x:Key="PriceFormatConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

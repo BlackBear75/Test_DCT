@@ -9,5 +9,13 @@
 
     <SolidColorBrush x:Key="HoverBrush" Color="#FFE0E0E0"/>
     <SolidColorBrush x:Key="SelectedBrush" Color="#FFC0C0C0"/>
-    
+
+
+    <SolidColorBrush x:Key="ListItemBackgroundBrush" Color="White"/>
+    <SolidColorBrush x:Key="ListAlternateItemBackgroundBrush" Color="#FFF0F0F0"/>
+
+    <SolidColorBrush x:Key="ChartBackgroundBrush" Color="White"/>
+    <SolidColorBrush x:Key="ChartTextBrush" Color="Black"/>
+    <SolidColorBrush x:Key="CandleIncreasingBrush" Color="Green"/>
+    <SolidColorBrush x:Key="CandleDecreasingBrush" Color="Red"/>
 </ResourceDictionary>

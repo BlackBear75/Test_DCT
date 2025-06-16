@@ -7,9 +7,16 @@
     <SolidColorBrush x:Key="WarningTextBrush" Color="#FFFF5555"/>
     <SolidColorBrush x:Key="ListBackgroundBrush" Color="#FF2A2A2A"/>
 
+    <SolidColorBrush x:Key="HoverBrush" Color="#FF333333"/>
+    <SolidColorBrush x:Key="SelectedBrush" Color="#FF444444"/>
+
     <SolidColorBrush x:Key="HoverBackgroundBrush" Color="#FF444444" />
     <SolidColorBrush x:Key="SelectedBackgroundBrush" Color="#FF666666" />
     <SolidColorBrush x:Key="SelectedForegroundBrush" Color="White" />
-    
-    
+
+
+    <SolidColorBrush x:Key="ChartBackgroundBrush" Color="#FF1E1E1E"/>
+    <SolidColorBrush x:Key="ChartTextBrush" Color="White"/>
+    <SolidColorBrush x:Key="CandleIncreasingBrush" Color="Green"/>
+    <SolidColorBrush x:Key="CandleDecreasingBrush" Color="Red"/>
 </ResourceDictionary>

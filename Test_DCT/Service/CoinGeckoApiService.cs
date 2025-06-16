@@ -33,7 +33,63 @@ public class CoinGeckoApiService
         var json = await response.Content.ReadAsStringAsync();
         return JsonSerializer.Deserialize<List<CoinMarketData>>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
     }
+    public async Task<List<Market>> GetMarketsAsync(string coinId)
+    {
+        if (string.IsNullOrWhiteSpace(coinId))
+            throw new ArgumentException("coinId must not be null or empty");
+
+        var response = await _httpClient.GetAsync($"coins/{coinId}/tickers");
+        response.EnsureSuccessStatusCode();
+        var json = await response.Content.ReadAsStringAsync();
+
+        var result = new List<Market>();
+        using var doc = JsonDocument.Parse(json);
+        var tickers = doc.RootElement.GetProperty("tickers");
+
+        foreach (var ticker in tickers.EnumerateArray())
+        {
+            try
+            {
+                var market = ticker.GetProperty("market").GetProperty("name").GetString();
+                var baseCurrency = ticker.GetProperty("base").GetString();
+                var targetCurrency = ticker.GetProperty("target").GetString();
+                var price = ticker.GetProperty("last").GetDecimal();
+                var tradeUrl = ticker.TryGetProperty("trade_url", out var tradeProp) && tradeProp.ValueKind == JsonValueKind.String
+                    ? tradeProp.GetString()
+                    : null;
+
+                result.Add(new Market
+                {
+                    ExchangeName = market,
+                    Pair = $"{baseCurrency}/{targetCurrency}",
+                    Price = price,
+                    Url = tradeUrl
+                });
+            }
+            catch
+            {
+                continue;
+            }
+        }
+
+        return result;
+    }
+    public async Task<List<OhlcPoint>> GetCoinOhlcAsync(string coinId, int days)
+    {
+        var response = await _httpClient.GetAsync($"coins/{coinId}/ohlc?vs_currency=usd&days={days}");
+        response.EnsureSuccessStatusCode();
+        var json = await response.Content.ReadAsStringAsync();
+        var rawData = JsonSerializer.Deserialize<List<List<decimal>>>(json);
+
+        return rawData?.Select(candle => new OhlcPoint
+        {
+            Date = DateTimeOffset.FromUnixTimeMilliseconds((long)candle[0]).DateTime,
+            Open = candle[1],
+            High = candle[2],
+            Low = candle[3],
+            Close = candle[4]
+        }).ToList() ?? new List<OhlcPoint>();
+    }
 
 
-    
 }

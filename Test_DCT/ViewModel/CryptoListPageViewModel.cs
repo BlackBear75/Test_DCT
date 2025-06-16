@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using Test_DCT.Model;
 using Test_DCT.Service;
+using Test_DCT.View;
 
 
 public partial class CryptoListPageViewModel : ObservableObject
@@ -16,7 +17,7 @@ public partial class CryptoListPageViewModel : ObservableObject
 
     private readonly INavigationService _navigationService;
     public IAsyncRelayCommand LoadDataCommand { get; }
-
+    public IRelayCommand<CoinMarketData> OpenDetailCommand { get; }
 
 
     public CryptoListPageViewModel(INavigationService navigationService)
@@ -27,8 +28,8 @@ public partial class CryptoListPageViewModel : ObservableObject
 
         _geckoApiService = new CoinGeckoApiService();
         LoadDataCommand = new AsyncRelayCommand(LoadDataAsync);
+        OpenDetailCommand = new RelayCommand<CoinMarketData>(OpenDetail);
 
-      
     }
 
     private async Task LoadDataAsync()
@@ -46,6 +47,14 @@ public partial class CryptoListPageViewModel : ObservableObject
 
         IsLoading = false;
     }
+
+
+    public void OpenDetail(CoinMarketData selectedCoin)
+    {
+        var detailPage = new CoinDetailPage(selectedCoin);
+        _navigationService.NavigateTo(detailPage);
+    }
+
 
 
 }

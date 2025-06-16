@@ -43,10 +43,15 @@
                       Foreground="{DynamicResource TextBrush}"
                       BorderThickness="1" 
                       BorderBrush="{DynamicResource ButtonBackgroundBrush}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseDoubleClick">
+                        <i:InvokeCommandAction Command="{Binding OpenDetailCommand}" 
+                                  CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource AncestorType=ListView}}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
 
-                
-                
-                
+
+
                 <ListView.Resources>
                     <Style TargetType="GridViewColumnHeader">
                         <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}" />
