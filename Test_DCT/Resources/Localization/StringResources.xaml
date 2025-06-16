@@ -45,5 +45,6 @@
     <system:String x:Key="SelectCurrenciesMessage">Please select currencies and enter amount.</system:String>
     <system:String x:Key="NoRateMessage">Conversion cannot be performed (rate unavailable).</system:String>
     <system:String x:Key="ConvertingMessage">Converting...</system:String>
-
+    
+    <system:String x:Key="SearchPlaceholder">🔍 Search...</system:String>
 </ResourceDictionary>

@@ -107,4 +107,37 @@ public class CoinGeckoApiService
         }
     }
 
+    public async Task<List<Coin>> GetAllCoinsAsync()
+    {
+        try
+        {
+            var response = await _httpClient.GetAsync("coins/list");
+            response.EnsureSuccessStatusCode();
+            var coins = await response.Content.ReadFromJsonAsync<List<Coin>>();
+            return coins ?? new List<Coin>();
+        }
+        catch (HttpRequestException e)
+        {
+            MessageBox.Show($"Помилка запиту до API: {e.Message}");
+            return new List<Coin>();
+        }
+    }
+
+    public async Task<CoinMarketData?> GetCoinMarketDataAsync(string coinId)
+    {
+        try
+        {
+            var url = $"coins/markets?vs_currency=usd&ids={coinId}";
+            var response = await _httpClient.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+            var list = await response.Content.ReadFromJsonAsync<List<CoinMarketData>>();
+            return list?.FirstOrDefault();
+        }
+        catch (HttpRequestException e)
+        {
+            MessageBox.Show($"Помилка запиту до API: {e.Message}");
+            return null;
+        }
+    }
+
 }

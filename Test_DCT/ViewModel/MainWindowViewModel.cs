@@ -1,14 +1,24 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
+using Test_DCT.Model;
 using Test_DCT.Service;
 using Test_DCT.View;
+
 
 public partial class MainWindowViewModel : ObservableObject
 {
     private readonly CoinGeckoApiService _coinGeckoApi;
 
+    private List<Coin> _allCoinsCache;
 
+    [ObservableProperty]
+    private string searchQuery;
+
+    public ObservableCollection<Coin> SearchSuggestions { get; } = new ObservableCollection<Coin>();
+
+    [ObservableProperty]
+    private Coin selectedSuggestion;
 
 
     [ObservableProperty]
@@ -46,8 +56,67 @@ public partial class MainWindowViewModel : ObservableObject
             _navigationService?.GoBack();
         });
 
+        this.PropertyChanged += async (_, e) =>
+        {
+            if (e.PropertyName == nameof(SearchQuery))
+            {
+                await UpdateSearchSuggestionsAsync();
+            }
+        };
+
+        this.PropertyChanged += (_, e) =>
+        {
+            if (e.PropertyName == nameof(SelectedSuggestion) && SelectedSuggestion != null)
+            {
+                _ = NavigateToSelectedCoinAsync(SelectedSuggestion);
+            }
+        };
+    }
+    private async Task UpdateSearchSuggestionsAsync()
+    {
+        if (string.IsNullOrWhiteSpace(SearchQuery))
+        {
+            SearchSuggestions.Clear();
+            AreSuggestionsVisible = false;
+            return;
+        }
+
+        if (_allCoinsCache == null)
+            _allCoinsCache = await _coinGeckoApi.GetAllCoinsAsync();
+
+        var filtered = _allCoinsCache
+            .Where(c => c.Name.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase)
+                     || c.Symbol.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase)
+                     || c.Id.Contains(SearchQuery, StringComparison.OrdinalIgnoreCase))
+            .Take(10)
+            .ToList();
+
+        SearchSuggestions.Clear();
+        foreach (var coin in filtered)
+            SearchSuggestions.Add(coin);
+
+        AreSuggestionsVisible = SearchSuggestions.Any();
     }
 
+    private async Task NavigateToSelectedCoinAsync(Coin coin)
+    {
+        AreSuggestionsVisible = false;
+        SearchQuery = string.Empty;
+        SelectedSuggestion = null;
+
+        if (_navigationService == null)
+            return;
+
+        var coinMarketData = await _coinGeckoApi.GetCoinMarketDataAsync(coin.Id);
+        if (coinMarketData != null)
+        {
+            _navigationService.NavigateTo(new CoinDetailPage(coinMarketData));
+        }
+        else
+        {
+            System.Windows.MessageBox.Show("Дані по монеті не знайдено.");
+        }
+    }
     public void SetNavigationService(INavigationService navigationService)
     {
         _navigationService = navigationService;

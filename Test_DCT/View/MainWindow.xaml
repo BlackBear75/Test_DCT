@@ -61,8 +61,55 @@
                         Background="{DynamicResource ButtonBackgroundBrush}"
                         Foreground="{DynamicResource ButtonTextBrush}"/>
             </StackPanel>
+            <Grid Grid.Column="1" Width="300" VerticalAlignment="Center">
+                <TextBox x:Name="SearchTextBox" 
+                 Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                 Height="30" 
+                 VerticalContentAlignment="Center"
+                 Padding="25,0,0,0"
+                 Background="{DynamicResource ListBackgroundBrush}"
+                 Foreground="{DynamicResource TextBrush}"/>
 
-      
+                <TextBlock IsHitTestVisible="False" 
+                   Text="{DynamicResource SearchPlaceholder}" 
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Left" 
+                   Margin="8,0,0,0" 
+                   Foreground="DarkGray">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=SearchTextBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+
+                <Popup 
+            IsOpen="{Binding AreSuggestionsVisible, Mode=TwoWay}"
+            PlacementTarget="{Binding ElementName=SearchTextBox}"
+            Placement="Bottom"
+            StaysOpen="False">
+
+                    <Border BorderBrush="Gray" 
+                    BorderThickness="1" 
+                    CornerRadius="4" 
+                    Background="{DynamicResource ListBackgroundBrush}" 
+                    MaxHeight="150" 
+                    MinWidth="{Binding ActualWidth, ElementName=SearchTextBox}">
+                        <ListBox 
+                    ItemsSource="{Binding SearchSuggestions}" 
+                    SelectedItem="{Binding SelectedSuggestion, Mode=TwoWay}"
+                    DisplayMemberPath="Name"
+                    Background="{DynamicResource ListBackgroundBrush}"
+                    Foreground="{DynamicResource TextBrush}"/>
+                    </Border>
+                </Popup>
+            </Grid>
+
         </Grid>
 
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
