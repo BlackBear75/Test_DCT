@@ -1,0 +1,70 @@
+﻿<Window x:Class="Test_DCT.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource TitleText}" 
+        Height="auto" Width="auto"
+        Background="{DynamicResource BackgroundBrush}"
+        Foreground="{DynamicResource TextBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center">
+                <Button Content="{DynamicResource HomeButton}" 
+                        Command="{Binding NavigateToHomePageCommand}" 
+                        Width="100" Margin="10,0"
+                        Background="{DynamicResource ButtonBackgroundBrush}"
+                        Foreground="{DynamicResource ButtonTextBrush}"/>
+
+                <Button Content="{DynamicResource BackButton}" 
+                        Command="{Binding GoBackCommand}" 
+                        Width="100" Margin="10,0"
+                        Background="{DynamicResource ButtonBackgroundBrush}"
+                        Foreground="{DynamicResource ButtonTextBrush}"/>
+
+                <Button Content="{DynamicResource ConverterButton}" 
+                        Command="{Binding NavigateToConverterPageCommand}" 
+                        Width="120" Margin="10,0"
+                        Background="{DynamicResource ButtonBackgroundBrush}"
+                        Foreground="{DynamicResource ButtonTextBrush}"/>
+
+                <Button Content="{DynamicResource EnglishButton}" 
+                        Command="{Binding SwitchToEnglishCommand}" 
+                        Width="50" Margin="0,0,10,0"
+                        Background="{DynamicResource ButtonBackgroundBrush}"
+                        Foreground="{DynamicResource ButtonTextBrush}"/>
+
+                <Button Content="{DynamicResource UkrainianButton}" 
+                        Command="{Binding SwitchToUkrainianCommand}" 
+                        Width="50" Margin="0,0,10,0"
+                        Background="{DynamicResource ButtonBackgroundBrush}"
+                        Foreground="{DynamicResource ButtonTextBrush}"/>
+
+                <Button Content="{DynamicResource LightThemeButton}" 
+                        Command="{Binding ChangeThemeCommand}" 
+                        CommandParameter="Light" Width="70" Margin="10,0"
+                        Background="{DynamicResource ButtonBackgroundBrush}"
+                        Foreground="{DynamicResource ButtonTextBrush}"/>
+
+                <Button Content="{DynamicResource DarkThemeButton}" 
+                        Command="{Binding ChangeThemeCommand}" 
+                        CommandParameter="Dark" Width="70"
+                        Background="{DynamicResource ButtonBackgroundBrush}"
+                        Foreground="{DynamicResource ButtonTextBrush}"/>
+            </StackPanel>
+
+      
+        </Grid>
+
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
+    </Grid>
+</Window>

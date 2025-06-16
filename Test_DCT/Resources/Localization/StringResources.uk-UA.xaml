@@ -1,0 +1,26 @@
+﻿<ResourceDictionary     
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    
+    <system:String x:Key="TitleText">Крипто Трекер</system:String>
+    <system:String x:Key="LoadButtonText">Завантажити</system:String>
+    <system:String x:Key="LoadingText">Завантаження...</system:String>
+    <system:String x:Key="Column_Name">Назва</system:String>
+    <system:String x:Key="Column_Symbol">Символ</system:String>
+    <system:String x:Key="Column_Price">Ціна (USD)</system:String>
+    <system:String x:Key="Column_MarketCap">Ринкова капіталізація (USD)</system:String>
+    <system:String x:Key="Column_Volume24h">Обсяг за 24г (USD)</system:String>
+    <system:String x:Key="Column_Change24h">% Зміна за 24г</system:String>
+
+    <system:String x:Key="HomeButton">🏠 Головна</system:String>
+    <system:String x:Key="BackButton">🔙 Назад</system:String>
+    <system:String x:Key="ConverterButton">💱 Конвертація</system:String>
+    <system:String x:Key="EnglishButton">EN</system:String>
+    <system:String x:Key="UkrainianButton">UA</system:String>
+    <system:String x:Key="LightThemeButton">☀️ Світла</system:String>
+    <system:String x:Key="DarkThemeButton">🌙 Темна</system:String>
+
+
+
+</ResourceDictionary>

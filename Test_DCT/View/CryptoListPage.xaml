@@ -1,0 +1,85 @@
+﻿<Page x:Class="Test_DCT.View.CryptoListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:local="clr-namespace:Test_DCT.View"
+      Title="{DynamicResource TitleText}">
+
+    <Page.Resources>
+        <Style TargetType="ListViewItem">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="2,0,2,0"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource HoverBackgroundBrush}" />
+                </Trigger>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource SelectedBackgroundBrush}" />
+                    <Setter Property="Foreground" Value="{DynamicResource SelectedForegroundBrush}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+    
+    <Grid Margin="10" Background="{DynamicResource BackgroundBrush}">
+        <StackPanel>
+            <Button Content="{DynamicResource LoadButtonText}" 
+                    Command="{Binding LoadDataCommand}" 
+                    Width="150" Height="35" Margin="0,0,0,10"
+                    Background="{DynamicResource ButtonBackgroundBrush}"
+                    Foreground="{DynamicResource ButtonTextBrush}" />
+
+            <TextBlock Text="{DynamicResource LoadingText}" 
+                       FontWeight="Bold" 
+                       Visibility="{Binding IsLoading, Converter={StaticResource BoolToVisibilityConverter}}"
+                       Foreground="{DynamicResource WarningTextBrush}" />
+
+            <ListView x:Name="CryptoListView"
+                      ItemsSource="{Binding Cryptos}" Height="400"
+                      SizeChanged="CryptoListView_SizeChanged"
+                      Background="{DynamicResource ListBackgroundBrush}"
+                      Foreground="{DynamicResource TextBrush}"
+                      BorderThickness="1" 
+                      BorderBrush="{DynamicResource ButtonBackgroundBrush}">
+
+                
+                
+                
+                <ListView.Resources>
+                    <Style TargetType="GridViewColumnHeader">
+                        <Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}" />
+                        <Setter Property="Foreground" Value="{DynamicResource ButtonTextBrush}" />
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="Padding" Value="5"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </ListView.Resources>
+                
+                <ListView.View>
+                    
+                    <GridView>
+                        <GridViewColumn Header="{DynamicResource Column_Name}" 
+                                        DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="{DynamicResource Column_Symbol}" 
+                                        DisplayMemberBinding="{Binding Symbol}" />
+                        <GridViewColumn Header="{DynamicResource Column_Price}" 
+                                        DisplayMemberBinding="{Binding CurrentPrice, StringFormat=N2}" />
+                        <GridViewColumn Header="{DynamicResource Column_MarketCap}" 
+                                        DisplayMemberBinding="{Binding MarketCap, StringFormat=N0}" />
+                        <GridViewColumn Header="{DynamicResource Column_Volume24h}" 
+                                        DisplayMemberBinding="{Binding TotalVolume, StringFormat=N0}" />
+                        <GridViewColumn Header="{DynamicResource Column_Change24h}" 
+                                        DisplayMemberBinding="{Binding PriceChangePercentage24h, StringFormat=N2}" />
+                    </GridView>
+                    
+                </ListView.View>
+              
+
+            </ListView>
+            
+        </StackPanel>
+        
+    </Grid>
+</Page>

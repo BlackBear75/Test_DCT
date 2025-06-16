@@ -1,0 +1,27 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="HomeButton">🏠 Home</system:String>
+    <system:String x:Key="BackButton">🔙 Back</system:String>
+    <system:String x:Key="ConverterButton">💱 Convert</system:String>
+    <system:String x:Key="EnglishButton">EN</system:String>
+    <system:String x:Key="UkrainianButton">UA</system:String>
+    <system:String x:Key="LightThemeButton">☀️ Light</system:String>
+    <system:String x:Key="DarkThemeButton">🌙 Dark</system:String>
+
+    <system:String x:Key="LoadButtonText">Load</system:String>
+    <system:String x:Key="LoadingText">Loading...</system:String>
+    <system:String x:Key="TitleText">Crypto Tracker</system:String>
+    <system:String x:Key="Column_Name">Name</system:String>
+    <system:String x:Key="Column_Symbol">Symbol</system:String>
+    <system:String x:Key="Column_Price">Price (USD)</system:String>
+    <system:String x:Key="Column_MarketCap">Market Cap (USD)</system:String>
+    <system:String x:Key="Column_Volume24h">Volume 24h (USD)</system:String>
+    <system:String x:Key="Column_Change24h">% Change 24h</system:String>
+
+
+
+
+</ResourceDictionary>
