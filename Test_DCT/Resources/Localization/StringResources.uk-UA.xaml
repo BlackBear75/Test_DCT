@@ -40,4 +40,9 @@
     <system:String x:Key="LinkColumn">Посилання</system:String>
     <system:String x:Key="GoToButton">Перейти</system:String>
 
+    <system:String x:Key="SelectCurrenciesMessage">Будь ласка, оберіть валюти та введіть суму.</system:String>
+    <system:String x:Key="NoRateMessage">Неможливо здійснити конвертацію (курс відсутній).</system:String>
+    <system:String x:Key="ConvertingMessage">Конвертація...</system:String>
+
+
 </ResourceDictionary>

@@ -19,4 +19,10 @@
     <SolidColorBrush x:Key="ChartTextBrush" Color="White"/>
     <SolidColorBrush x:Key="CandleIncreasingBrush" Color="Green"/>
     <SolidColorBrush x:Key="CandleDecreasingBrush" Color="Red"/>
+
+    <SolidColorBrush x:Key="ComboBoxBackgroundBrush" Color="Black"/>
+    <SolidColorBrush x:Key="ComboBoxForegroundBrush" Color="Black"/>
+    <SolidColorBrush x:Key="ComboBoxBorderBrush" Color="Black"/>
+    <SolidColorBrush x:Key="ComboBoxHoverBackgroundBrush" Color="Black"/>
+    <SolidColorBrush x:Key="ComboBoxFocusedBorderBrush" Color="Black"/>
 </ResourceDictionary>

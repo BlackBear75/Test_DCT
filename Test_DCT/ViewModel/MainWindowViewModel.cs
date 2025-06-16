@@ -19,6 +19,8 @@ public partial class MainWindowViewModel : ObservableObject
     public IRelayCommand SwitchToUkrainianCommand { get; }
     public IRelayCommand<string> ChangeThemeCommand { get; }
     public IRelayCommand NavigateToHomePageCommand { get; }
+
+    public IRelayCommand NavigateToConverterPageCommand { get; }
     public IRelayCommand GoBackCommand { get; }
     public MainWindowViewModel()
     {
@@ -33,6 +35,10 @@ public partial class MainWindowViewModel : ObservableObject
         NavigateToHomePageCommand = new RelayCommand(() =>
         {
             _navigationService?.NavigateTo(new CryptoListPage(_navigationService));
+        });
+        NavigateToConverterPageCommand = new RelayCommand(() =>
+        {
+            _navigationService?.NavigateTo(new CurrencyConverterPage(_navigationService));
         });
 
         GoBackCommand = new RelayCommand(() =>

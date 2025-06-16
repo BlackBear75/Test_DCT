@@ -91,5 +91,20 @@ public class CoinGeckoApiService
         }).ToList() ?? new List<OhlcPoint>();
     }
 
+    public async Task<List<Coin>> GetCoinListAsync()
+    {
+        try
+        {
+            var response = await _httpClient.GetAsync("coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1");
+            response.EnsureSuccessStatusCode();
+            var coins = await response.Content.ReadFromJsonAsync<List<Coin>>();
+            return coins ?? new List<Coin>();
+        }
+        catch (HttpRequestException e)
+        {
+            MessageBox.Show($"API request error: {e.Message}");
+            return new List<Coin>();
+        }
+    }
 
 }
